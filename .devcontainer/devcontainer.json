@@ -1,7 +1,7 @@
 {
 	"dockerFile": "Dockerfile",
 	"hostRequirements": {
-		"cpus": 4
+		"cpus": 2
 	},
 	"waitFor": "updateContentCommand",
 	"onCreateCommand": "make setup-on-create-command",
