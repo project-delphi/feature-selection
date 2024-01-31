@@ -1,12 +1,11 @@
 click
 fastapi
+flax
+jax
+keras
 matplotlib
 numpy
 pandas
 scikit-learn
 tensorflow
 uvicorn[standard]
-keras
-tensorflow
-jax
-flax
