@@ -6,3 +6,8 @@ pandas
 scikit-learn
 tensorflow
 uvicorn[standard]
+keras
+pytorch
+tensorflow
+jax
+flax
