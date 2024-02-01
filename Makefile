@@ -1,5 +1,12 @@
-SHELL := /usr/bin/env bash
-.ONESHELL:
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin) # MacOS
+    SHELL := /usr/bin/env bash
+else ifeq ($(UNAME), Linux)
+    SHELL := /bin/bash
+else
+    $(error Unsupported operating system: $(UNAME))
+endif
 
 .ONESHELL:
 
