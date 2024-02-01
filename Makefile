@@ -1,4 +1,6 @@
-SHELL := /bin/bash
+SHELL := /usr/bin/env bash
+.ONESHELL:
+
 .ONESHELL:
 
 .DEFAULT_GOAL:=help
@@ -24,7 +26,7 @@ env-ishell-activate:# Activate virtual environment for interactive shells
 
 .PHONY: env-deactivate
 env-deactivate:# Deactivate virtual environment, doesn't work unless virtual environment is activated
-	source deactivate
+	deactivate
 
 .PHONY: env-delete
 env-delete:# Delete environment directory .venv
@@ -60,7 +62,6 @@ uninstall-dev:# Uninstall developer dependencies
 	source ./.venv/bin/activate
 	pip uninstall -r requirements_dev.txt
 
-
 .PHONY: uninstall-run
 uninstall-run:# Uninstall application only dependencies
 	source ./.venv/bin/activate
@@ -75,8 +76,9 @@ uninstall:# Uninstall all dependencies
 
 .PHONY: sandbox-pre-commit-init
 sandbox-pre-commit-init:## Create a new virtual environment and install all dependencies
-	source ./.venv/bin/activate
-	pre-commit install && pre-commit autoupdate
+	python3 -m venv .venv
+	source ./.venv/bin/activate && pip install pre-commit
+	./.venv/bin/pre-commit install && ./.venv/bin/pre-commit autoupdate
 
 .PHONY: sandbox-new
 sandbox-new: env-initiate install sandbox-pre-commit-init## Create a new virtual environment and install all dependencies
