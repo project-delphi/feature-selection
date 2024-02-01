@@ -8,4 +8,7 @@ numpy
 pandas
 scikit-learn
 tensorflow
+torch
+torchaudio
+torchvision
 uvicorn[standard]
