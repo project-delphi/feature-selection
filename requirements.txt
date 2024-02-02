@@ -6,6 +6,7 @@ keras
 matplotlib
 numpy
 pandas
+pytorch-tabnet
 scikit-learn
 tensorflow
 torch
